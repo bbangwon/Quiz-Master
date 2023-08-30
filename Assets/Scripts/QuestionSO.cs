@@ -1,10 +1,10 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 [CreateAssetMenu(menuName = "Quiz Question", fileName = "New Question")]
 public class QuestionSO : ScriptableObject
 {
     [TextArea(2, 6)]
-    [SerializeField] string question = "»õ·Î¿î ¹®Á¦¸¦ ¿©±â¿¡ ÀÔ·ÂÇÏ¼¼¿ä";
+    [SerializeField] string question = "ìƒˆë¡œìš´ ë¬¸ì œë¥¼ ì—¬ê¸°ì— ì…ë ¥í•˜ì„¸ìš”";
 
     public string GetQuestion()
     {
