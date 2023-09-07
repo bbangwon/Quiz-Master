@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: Question 1
   m_EditorClassIdentifier: 
   question: "\"Hello World\"\uB97C \uCD9C\uB825\uD558\uAE30 \uC704\uD55C \uCF54\uB4DC\uB294?"
+  answers:
+  - string hello = "Hello World";
+  - ' "Hello World".ToString();'
+  - Debug.Log("Hello World");
+  - Debug.Log("Hello World".Length);
+  correctAnswerIndex: 2

@@ -14,3 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question: "\uBC18\uBCF5\uBB38\uC5D0 \uB300\uD55C \uCF54\uB4DC\uB85C \uB9DE\uB294
     \uAC83\uC740?"
+  answers:
+  - for(int i=0;i++;i < 10){ }
+  - while(a = 0){ }
+  - foreach(var l in list){ }
+  - do { } while(true);
+  correctAnswerIndex: 3
