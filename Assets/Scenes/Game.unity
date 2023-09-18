@@ -216,7 +216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &68120606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +347,7 @@ MonoBehaviour:
   timeToCompleteQuestion: 30
   timeToShowCorrectAnswer: 10
   isAnsweringQuestion: 0
+  fillFraction: 0
 --- !u!1001 &451052632
 PrefabInstance:
   m_ObjectHideFlags: 0
