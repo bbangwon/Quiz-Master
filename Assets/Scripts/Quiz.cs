@@ -1,25 +1,60 @@
 ﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System;
 
 public class Quiz : MonoBehaviour
 {
+    [Header("Questions")]
     [SerializeField] TextMeshProUGUI questionText;
     [SerializeField] QuestionSO question;
+
+    [Header("Answers")]
     [SerializeField] GameObject[] answerButtons;
     int correctAnswerIndex;
+    bool hasAnsweredEarly;
+
+    [Header("Buttons")]
     [SerializeField] Sprite defaultAnswerSprite;
     [SerializeField] Sprite correctAnswerSprite;
+
+    [Header("Timer")]
+    [SerializeField] Image timerImage;
+    Timer timer;
     
     void Start()
     {
+        timer = FindAnyObjectByType<Timer>();
         GetNextQuestion();
+    }
+
+    private void Update()
+    {
+        if(timer.loadNextQuestion)
+        {
+            hasAnsweredEarly = false;
+            GetNextQuestion();
+            timer.loadNextQuestion = false;
+        }
+        else if(!hasAnsweredEarly && !timer.isAnsweringQuestion)
+        {
+            DisplayAnswer(-1);
+            SetButtonState(false);
+        }
+
+        timerImage.fillAmount = timer.fillFraction;
     }
 
     public void OnAnswerSelected(int index)
     {
-        if(index == question.GetCorrectAnswerIndex())
+        hasAnsweredEarly = true;
+        DisplayAnswer(index);
+        SetButtonState(false);
+        timer.CancelTimer();
+    }
+
+    private void DisplayAnswer(int index)
+    {
+        if (index == question.GetCorrectAnswerIndex())
         {
             questionText.text = "정답!";
             Image buttonImage = answerButtons[index].GetComponent<Image>();
@@ -34,8 +69,6 @@ public class Quiz : MonoBehaviour
             Image buttonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
             buttonImage.sprite = correctAnswerSprite;
         }
-
-        SetButtonState(false);
     }
 
     void GetNextQuestion()
